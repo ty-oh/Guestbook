@@ -45,12 +45,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	<update id="update" parameterType="org.joonzis.mybatis.GuestbookVo">
-		update guestbook set writer=#{writer}, email=#{email}, pw=#{pw}, filename=#{filename}, title=#{title}, content=#{content} where id=#{id}
+		update guestbook
+		set writer=#{writer},
+			email=#{email}, 
+			pw=#{pw}, 
+			title=#{title}, 
+			content=#{content} 
+		where idx=#{idx}
 	</update>
 	
 	<delete id="delete" parameterType="org.joonzis.mybatis.GuestbookVo">
-		delete from guestbook where id=#{id} and pw=#{pw}
+		delete from guestbook 
+		where writer=#{writer} and 
+			  pw=#{pw} and
+			  idx=#{idx}
 	</delete>
-	
 	
 </mapper>

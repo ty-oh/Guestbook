@@ -30,6 +30,10 @@ public class GuestbookDao {
 		return getSqlSession().selectList("select_all");
 	}
 	
+	public static GuestbookVo selectByIdx(GuestbookVo vo) {
+		return getSqlSession().selectOne("select_by_idx", vo.getIdx());
+	}
+	
 	public static int insert(GuestbookVo vo) {
 		int result = getSqlSession().insert("insert", vo);
 		if(result >0) {
@@ -39,8 +43,23 @@ public class GuestbookDao {
 		return result;
 	}
 	
-	public static GuestbookVo selectByIdx(GuestbookVo vo) {
-		return getSqlSession().selectOne("select_by_idx", vo.getIdx());
+	public static int update(GuestbookVo vo) {
+		int result = getSqlSession().update("update", vo);
+		if(result > 0) {
+			getSqlSession().commit();
+		}
+		
+		return result;
 	}
+	
+	public static int delete(GuestbookVo vo) {
+		int result = getSqlSession().delete("delete", vo); 
+		if(result > 0) {
+			getSqlSession().commit();
+		}
+		
+		return result;
+	}
+	
 	
 }
