@@ -39,7 +39,8 @@
 		var updateGuestbook = function(f) {
 			// 현재 session에 저장되어있는 vo객체의 pw와
 			// input에서 입력받은 pw 값을 비교
-			if (f.pw.value != "${result.pw}") {
+			if (f.pw.value != "${articleInfo.pw}") {
+				alert(${articleInfo.pw});
 				alert("비밀번호가 다릅니다.");
 				return;
 			}

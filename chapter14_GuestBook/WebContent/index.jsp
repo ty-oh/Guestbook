@@ -45,6 +45,7 @@
 	<%
 		List<GuestbookVo> list = GuestbookDao.select_all();
 		pageContext.setAttribute("list", list);
+		
 	%>
 	
 	<div>
